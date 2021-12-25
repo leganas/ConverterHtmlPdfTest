@@ -68,8 +68,9 @@ namespace ConverterHtmlPdfTest
             List<Task<String>> tasks = new List<Task<String>>();
             foreach (var item in files)
             {
-                    FileStream stream = File.OpenRead(item); 
-                    resultList.Add(ConvertToFile(stream, item + ".pdf")); 
+                    FileStream stream = File.OpenRead(item);
+                    string file = item.Split("\\").Last();
+                    resultList.Add(ConvertToFile(stream, pathTo + "\\" + file + ".pdf")); 
             }
             stopwatch.Stop();
             Console.WriteLine("Конвертация всех файлов завершена за " + stopwatch.ElapsedMilliseconds / 1000 + " сек");
@@ -86,7 +87,8 @@ namespace ConverterHtmlPdfTest
             {
                 Task<String> taskConvert = new Task<String>(() => {
                     FileStream stream = File.OpenRead(item);
-                    return ConvertToFile(stream, item + ".pdf");
+                    string file = item.Split("\\").Last();
+                    return ConvertToFile(stream, pathTo + "\\"+file + ".pdf");
                 });
                 tasks.Add(taskConvert);
             }
