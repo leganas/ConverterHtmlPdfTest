@@ -9,9 +9,9 @@ namespace ConverterHtmlPdfTest
         static void Main(string[] args)
         {
             string[] files = Directory.GetFiles(@"D:\HTML_to_PDF\html", "*.html");
-//            var convertHelper = new PdfSharpBaseConvertHelper(); // Не потокобезопасен
+//            var convertHelper = new PdfSharpBaseConvertHelper(); // Не потокобезопасен Гавно как оказалась
 //            var convertHelper = new ITextSharp_LGPL_Helper();  // Бесплатная версия iText , нужно разбираться как реализовать конвертацию
-            var convertHelper = new iText7ConverterHelper(); // Работает хорошо но платный для комерческого использования
+            var convertHelper = new iText7ConverterHelper(); // Работает хорошо но платная для комерческого использования, если узнают :) 
             convertHelper.ConvertMultiThread(files, @"D:\HTML_to_PDF\pdf");
 
         }
