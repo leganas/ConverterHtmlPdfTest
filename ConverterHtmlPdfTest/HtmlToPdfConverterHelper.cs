@@ -60,7 +60,7 @@ namespace ConverterHtmlPdfTest
             return fileName + ".pdf";
         }
 
-        public List<String> CovertAll(String[] files, String pathTo)
+        public List<String> ConvertSingleThread(String[] files, String pathTo)
         {
             List<String> resultList = new List<String>();
             Stopwatch stopwatch = new Stopwatch();
@@ -77,7 +77,7 @@ namespace ConverterHtmlPdfTest
             return resultList;
         }
 
-        public List<String> MultiThreadCovert(String[] files, String pathTo)
+        public List<String> ConvertMultiThread(String[] files, String pathTo)
         {
             List<String> resultList = new List<String>();
             Stopwatch stopwatch = new Stopwatch();
