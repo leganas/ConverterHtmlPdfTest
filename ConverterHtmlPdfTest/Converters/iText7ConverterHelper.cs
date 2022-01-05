@@ -1,4 +1,8 @@
 ﻿using iText.Html2pdf;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +16,11 @@ namespace ConverterHtmlPdfTest.Converters
     {
         public override void ConvertToStream(string html, Stream outPdf)
         {
-            HtmlConverter.ConvertToPdf(html, outPdf);
+            ConverterProperties properties = new ConverterProperties();
+            var pdfWriter = new PdfWriter(outPdf);
+            var pdfDocument = new PdfDocument(pdfWriter);
+            pdfDocument.SetDefaultPageSize(PageSize.A4.Rotate());
+            HtmlConverter.ConvertToPdf(html, pdfDocument, properties);
         }
     }
 }

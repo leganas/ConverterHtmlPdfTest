@@ -19,7 +19,7 @@ namespace ConverterHtmlPdfTest
     class PdfSharpBaseConvertHelper : HtmlToPdfConverterHelper
     {
         public override void ConvertToStream(string html, Stream outPdf)
-        {
+        { 
             var pdf = TheArtOfDev.HtmlRenderer.PdfSharp.PdfGenerator.GeneratePdf(html, PdfSharp.PageSize.A4);
             pdf.Save(outPdf);
         }
